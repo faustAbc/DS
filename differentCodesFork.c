@@ -7,13 +7,11 @@
 #include <sys/wait.h>
 
 int main() {
-  int status;
-  int i = 5;
 
-  while(i--) {
-    fork();
-    printf("%d\n", getpid());
-    wait(&status);
+  if(fork() == 0) {
+    sleep(1);
+  } else {
+    sleep(20);
   }
 
   return 0;

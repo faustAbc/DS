@@ -3,6 +3,7 @@
     "unistd.h": "c",
     "ctime": "c",
     "iostream": "c",
-    "cstdlib": "c"
+    "cstdlib": "c",
+    "wait.h": "c"
   }
 }

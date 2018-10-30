@@ -5,8 +5,6 @@ gcc -o fileRead fileRead.c
 ls ./
 ./fileRead
 
-rm 
-
 if gcc -o fileRead fileRead.c ; then
     echo "Compilation success"
     else
