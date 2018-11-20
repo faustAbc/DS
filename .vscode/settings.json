@@ -1,9 +1,11 @@
 {
   "files.associations": {
+    "*.c": "c",
     "unistd.h": "c",
     "ctime": "c",
     "iostream": "c",
     "cstdlib": "c",
-    "wait.h": "c"
+    "wait.h": "c",
+    "time.h": "c"
   }
 }
