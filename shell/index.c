@@ -1,7 +1,6 @@
 #include <unistd.h>    // getpid(), getcwd()
 #include <sys/types.h> // type definitions, e.g., pid_t
 #include <sys/wait.h>  // wait()
-#include <signal.h>    // signal name constants and kill()
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
