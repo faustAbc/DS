@@ -38,7 +38,7 @@ int main()
     char *tmp = prog;
     progArgs[0] = tmp;
     int i;
-    char *newenviron[] = { NULL };
+    char *newenviron[] = {NULL};
 
     for (i = 1; tmp != NULL; i++)
     {
@@ -54,7 +54,6 @@ int main()
       perror("Internal error: cannot fork.");
       return 1;
     }
-
     else if (kidpid == 0)
     {
       execve(prog, progArgs, newenviron);
