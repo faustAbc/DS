@@ -72,12 +72,11 @@ int main()
     {
       if (fileName != NULL)
       {
-        int file = open(fileName, O_APPEND | O_WRONLY);
+        int file = open(fileName, O_CREAT | O_WRONLY, 0777);
         if (file < 0)
           return 1;
-        if (dup2(file, 0) < 0)
+        if (dup2(file, 1) < 0)
         {
-          close(file);
           return 1;
         }
       }
