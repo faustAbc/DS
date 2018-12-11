@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 int main()
 {
@@ -20,6 +22,8 @@ int main()
     char *prog = NULL;
     const int maxArgs = 128;
     char *progArgs[maxArgs];
+
+    char *fileName = NULL;
 
     printf("\n>> ");
 
@@ -42,6 +46,16 @@ int main()
 
     for (i = 1; tmp != NULL; i++)
     {
+      // printf("\ntemp: %s", tmp);
+
+      if (!strcmp(tmp, ">"))
+      {
+        fileName = strtok(NULL, " ");
+        printf("\nfile: %s", fileName);
+        tmp = strtok(NULL, " ");
+        continue;
+      }
+
       progArgs[i] = tmp;
       tmp = strtok(NULL, " ");
       printf("\nArg %i: %s", i, progArgs[i]);
@@ -56,6 +70,17 @@ int main()
     }
     else if (kidpid == 0)
     {
+      if (fileName != NULL)
+      {
+        int file = open(fileName, O_APPEND | O_WRONLY);
+        if (file < 0)
+          return 1;
+        if (dup2(file, 0) < 0)
+        {
+          close(file);
+          return 1;
+        }
+      }
       execve(prog, progArgs, newenviron);
       perror(line);
       return -1;
