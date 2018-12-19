@@ -50,14 +50,14 @@ int main()
 
       if (!strcmp(tmp, ">"))
       {
-        fileName = strtok(NULL, " ");
+        fileName = strtok(NULL, " \n");
         printf("\nfile: %s", fileName);
-        tmp = strtok(NULL, " ");
+        tmp = strtok(NULL, " \n");
         continue;
       }
 
       progArgs[i] = tmp;
-      tmp = strtok(NULL, " ");
+      tmp = strtok(NULL, " \n");
       printf("\nArg %i: %s", i, progArgs[i]);
     }
     progArgs[i] = NULL;

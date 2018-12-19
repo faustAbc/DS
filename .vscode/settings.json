@@ -6,6 +6,7 @@
     "iostream": "c",
     "cstdlib": "c",
     "wait.h": "c",
-    "time.h": "c"
+    "time.h": "c",
+    "types.h": "c"
   }
 }
